@@ -11,7 +11,7 @@ export const Dashboard: React.FC = () => {
   const dailyExpenses = expenses.slice(-10).reduce((acc, expense) => acc + expense, 0);
 
   const chartData = earnings.map((earning, index) => ({
-    name: `Day ${index + 1}`,
+    name: `sells ${index + 1}`,
     earnings: earning,
     expenses: expenses[index] || 0,
   }));
