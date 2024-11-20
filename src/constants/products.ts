@@ -1,0 +1,46 @@
+import { Product } from '../types/game';
+
+export const INITIAL_PRODUCTS: Record<string, Product> = {
+  Cereal: {
+    name: 'Cereal',
+    basePrice: 3.99,
+    supplierPrice: 2.99,
+    maxPrice: 5.99,
+    tier: 1,
+    stock: 0,
+    sellingPrice: 4.79,
+  },
+  Cookies: {
+    name: 'Cookies',
+    basePrice: 2.99,
+    supplierPrice: 1.99,
+    maxPrice: 4.99,
+    tier: 1,
+    stock: 0,
+    sellingPrice: 3.59,
+  },
+  Milk: {
+    name: 'Milk',
+    basePrice: 2.49,
+    supplierPrice: 1.99,
+    maxPrice: 3.99,
+    tier: 1,
+    isPerishable: true,
+    expiryDays: 7,
+    stock: 0,
+    sellingPrice: 2.99,
+    expiryDates: [],
+  },
+  Bread: {
+    name: 'Bread',
+    basePrice: 1.99,
+    supplierPrice: 1.49,
+    maxPrice: 2.99,
+    tier: 1,
+    isPerishable: true,
+    expiryDays: 5,
+    stock: 0,
+    sellingPrice: 2.39,
+    expiryDates: [],
+  },
+};
