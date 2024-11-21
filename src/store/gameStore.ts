@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { GameState, Product, Customer, Employee } from '../types/game';
+import { GameState, Employee } from '../types/game';
 import { generateCustomer } from '../utils/customerUtils';
 import { INITIAL_PRODUCTS } from '../constants/products';
 
@@ -12,9 +12,12 @@ interface GameStore extends GameState {
   updateGame: () => void;
   saveGame: () => void;
   loadGame: () => void;
+  isSettingsOpen: boolean;
+  soundEnabled: boolean;
+  showTutorial: boolean;
 }
 
-const INITIAL_STATE: GameState = {
+const INITIAL_STATE: GameState & Pick<GameStore, 'isSettingsOpen' | 'soundEnabled' | 'showTutorial'> = {
   cash: 2000,
   level: 1,
   day: 1,
@@ -25,6 +28,9 @@ const INITIAL_STATE: GameState = {
   expenses: [],
   gameStarted: false,
   lastSaved: new Date(),
+  isSettingsOpen: false,
+  soundEnabled: true,
+  showTutorial: true,
 };
 
 export const useGameStore = create<GameStore>((set, get) => ({

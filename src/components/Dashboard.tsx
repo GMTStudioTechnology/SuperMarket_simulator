@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGameStore } from '../store/gameStore';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { ShoppingCart, Users, Package, DollarSign } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
@@ -43,15 +43,17 @@ export const Dashboard: React.FC = () => {
 
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-bold mb-4">Financial Overview</h2>
-        <LineChart width={800} height={300} data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="earnings" stroke="#10B981" name="Earnings" />
-          <Line type="monotone" dataKey="expenses" stroke="#EF4444" name="Expenses" />
-        </LineChart>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="earnings" stroke="#10B981" name="Earnings" />
+            <Line type="monotone" dataKey="expenses" stroke="#EF4444" name="Expenses" />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
